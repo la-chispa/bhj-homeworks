@@ -5,7 +5,7 @@ let counter = document.getElementById('clicker__counter');
 let speed = document.getElementById('clicker__speed');
 let lastClick = Date.now();
 
-function changeSize() {
+function countClicks() {
 	++counter.textContent;
 
 	let newClick = Date.now();
@@ -20,4 +20,4 @@ function changeSize() {
 	}
 }
 
-cookies.onclick = changeSize;
+cookies.onclick = countClicks;
