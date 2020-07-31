@@ -12,7 +12,7 @@ function countClicks() {
 	speed.textContent = (1000 / (newClick - lastClick)).toFixed(2);
 	lastClick = newClick;
 
-//По просьбам мужа-сладкоежки печенька будет непрерывно увеличиваться, пока не дорастёт до полного размера изображения =)
+//По просьбам мужа печенька будет непрерывно увеличиваться, пока не дорастёт до полного размера изображения =)
 	if (cookies.width <= 1024) {
 		cookies.width = cookies.width + 10;
 	} else {
