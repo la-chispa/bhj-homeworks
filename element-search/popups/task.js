@@ -7,16 +7,14 @@ const successPopup = document.getElementById('modal_success');
 
 successElem.onclick = () => {
 	successPopup.className = 'modal modal_active';
+	activePopup.className = 'modal';
 }
 
 const closePopup = Array.from(document.querySelectorAll('div.modal__close'));
-const popups = Array.from(document.querySelectorAll('.modal'))
 
 for (let i in closePopup) {
-	closePopup[i].onclick = () => {
-		for (let popup in popups) {
-			popups[popup].className = 'modal';
-		}
+	closePopup[i].onclick = function() {
+		this.closest('.modal').className = 'modal';
 	}
 }
 
