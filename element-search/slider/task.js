@@ -8,8 +8,10 @@ const dots = Array.from(document.getElementsByClassName('slider__dot'));
 let currentNumber = 0;
 let nextNumber = 0;
 
+dots[0].className = 'slider__dot slider__dot_active';
+
 next.onclick = () => {
-	currentNumber = findCurrentSlide();
+	currentNumber = slides.findIndex(findCurrentSlide);
 	nextNumber = currentNumber + 1;
 	if (currentNumber >= slides.length - 1) {
 		nextNumber = 0;
@@ -18,7 +20,7 @@ next.onclick = () => {
 }
 
 prev.onclick = () => {
-	currentNumber = findCurrentSlide();
+	currentNumber = slides.findIndex(findCurrentSlide);
 	nextNumber = currentNumber - 1;
 	if (currentNumber === 0) {
 		nextNumber = slides.length - 1;
@@ -28,21 +30,19 @@ prev.onclick = () => {
 
 for (let i = 0; i < dots.length; i++) {
 	dots[i].onclick = () => {
-		currentNumber = findCurrentSlide();
+		currentNumber = slides.findIndex(findCurrentSlide);
 		nextNumber = i;
 		slideImage();
 	}
 }
 
-function findCurrentSlide() {
-	for (let i = 0; i < slides.length; i++) {
-		if (slides[i].className === 'slider__item slider__item_active') {
-			return i;
-		}
-	}
+function findCurrentSlide(slide) {
+	return slide.className.includes('slider__item_active');
 }
 
 function slideImage() {
 	slides[currentNumber].className = 'slider__item';
 	slides[nextNumber].className = 'slider__item slider__item_active';
+	dots[nextNumber].className = 'slider__dot slider__dot_active';
+	dots[currentNumber].className = 'slider__dot';
 }
