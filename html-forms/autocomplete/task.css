@@ -33,7 +33,7 @@
 
 .autocomplete__list {
   list-style-type: none;
-  display: inline-block;
+  display: none;
   padding: 0;
 }
 
@@ -42,3 +42,7 @@
   border-bottom: 1px solid gray;
   margin-bottom: 5px;
 }
+
+.autocomplete__list_active {
+  display: inline-block;
+} 
