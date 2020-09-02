@@ -3,8 +3,10 @@ const chatWidget = document.querySelector('.chat-widget');
 const messages = document.querySelector('.chat-widget__messages');
 const container = document.querySelector('.chat-widget__messages-container');
 
+let checker = 0;
+
 chatWidget.addEventListener('click', openChat);
-document.addEventListener('keydown', sendMessage);
+document.addEventListener('keyup', sendMessage);
 
 function openChat() {
 	chatWidget.classList.add('chat-widget_active');
@@ -23,13 +25,18 @@ function sendMessage(event) {
 	'А теперь проваливайте.',
 	]
 	let botMessage = botMessages[Math.floor(Math.random() * Math.floor(botMessages.length))];
+	clearTimeout(checker);
 	
 	if (event.keyCode === 13 && clientMessage.value) {
 		getMessage(clientMessage.value);
 		document.querySelector('.chat-widget__messages').lastElementChild.classList.add('message_client'); 
 		clientMessage.value = '';
 		getMessage(botMessage);
-		container.scrollTo(0, messages.lastElementChild.getBoundingClientRect().bottom);
+		container.scrollTop = 9999;
+		checker = setTimeout(() => {
+			getMessage('Что молчим? Кого ждём?');
+			container.scrollTop = 9999;
+		}, 30000);
 	}
 }
 
@@ -44,5 +51,3 @@ function getMessage(message) {
  		  </div>
 		`;
 }
-
-
