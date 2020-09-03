@@ -1,3 +1,23 @@
 body {
   font-family: Arial;
 }
+
+.poll__title {
+	margin-bottom: 5px;
+}
+
+.poll__answers {
+	display: none;
+}
+
+.poll__answers_active {
+	display: block;
+}
+
+.poll__answer {
+	margin-bottom: 4px;
+}
+
+.poll__stat-percent {
+	font-weight: bold;
+}
