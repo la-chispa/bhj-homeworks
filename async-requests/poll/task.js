@@ -3,7 +3,7 @@ const title = document.getElementById('poll__title');
 const answers = document.getElementById('poll__answers');
 
 let xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://netology-slow-rest.herokuapp.com/poll.php');
+xhr.open('POST', 'https://netology-slow-rest.herokuapp.com/poll.php');
 xhr.send();
 
 xhr.addEventListener('readystatechange', function() {
